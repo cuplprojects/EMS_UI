@@ -3,7 +3,7 @@ import React from 'react'
 const Payrolls = () => {
   return (
     <div>
-      This is Payrolls Page.
+      This is Payrolls page.
     </div>
   )
 }

@@ -17,7 +17,8 @@ import Banks from './pages/Masters/Banks/Banks';
 import UpdateEmployee from './pages/Masters/Employee/UpdateEmployee';
 import ImportEmployee from './pages/Masters/Employee/ImportEmployee';
 import Payrolls from './pages/Payrolls/Payrolls';
-import LoansAndAdvances from './pages/Masters/LoansAndAdvances/LoansAndAdvances';
+import LoansAndAdvances from './pages/LoansAndAdvances/LoansAndAdvances';
+import Attendance from './pages/Attendance/Attendance';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
@@ -56,8 +57,10 @@ function App() {
           <Route path="masters/banks" element={<Banks />} />
           <Route path="masters/employee/update/:id" element={<UpdateEmployee />} />
           <Route path="masters/roles" element={<Roles />} />
-          <Route path="loans-and-advances" element={<LoansAndAdvances />} />
           <Route path="payrolls" element={<Payrolls />} />
+          <Route path="loans-and-advances" element={<LoansAndAdvances />} />
+          <Route path="attendance" element={<Attendance />} />
+
           {/* Catch all route for authenticated users */}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Route>
