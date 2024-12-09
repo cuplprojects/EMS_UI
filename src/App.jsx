@@ -15,6 +15,10 @@ import Location from './pages/Masters/Location/Location';
 import Designation from './pages/Masters/Designation/Designation';
 import Banks from './pages/Masters/Banks/Banks';
 import UpdateEmployee from './pages/Masters/Employee/UpdateEmployee';
+import ImportEmployee from './pages/Masters/Employee/ImportEmployee';
+import Payrolls from './pages/Payrolls/Payrolls';
+import LoansAndAdvances from './pages/Masters/LoansAndAdvances/LoansAndAdvances';
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
@@ -45,12 +49,15 @@ function App() {
           <Route path="masters/employee" element={<Navigate to="/masters/employee/view" replace />} />
           <Route path="masters/employee/view" element={<AllEmployee />} />
           <Route path="masters/employee/add" element={<AddEmployee />} />
-          <Route path="masters/roles" element={<Roles />} />
+          <Route path="masters/employee/import" element={<ImportEmployee />} />
           <Route path="masters/departments" element={<Department />} />
           <Route path="masters/locations" element={<Location />} />
           <Route path="masters/designations" element={<Designation />} />
           <Route path="masters/banks" element={<Banks />} />
           <Route path="masters/employee/update/:id" element={<UpdateEmployee />} />
+          <Route path="masters/roles" element={<Roles />} />
+          <Route path="loans-and-advances" element={<LoansAndAdvances />} />
+          <Route path="payrolls" element={<Payrolls />} />
           {/* Catch all route for authenticated users */}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Route>

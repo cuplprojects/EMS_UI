@@ -51,11 +51,10 @@ const Settings = () => {
             return (
                 <button
                     onClick={() => navigate('/change-password')}
-                    className={`px-4 py-2 rounded-lg ${
-                        theme === 'dark' 
-                            ? 'bg-purple-600 hover:bg-purple-700 text-white' 
+                    className={`px-4 py-2 rounded-lg ${theme === 'dark'
+                            ? 'bg-purple-600 hover:bg-purple-700 text-white'
                             : 'bg-blue-100 hover:bg-blue-200 text-blue-700'
-                    } transition-colors`}
+                        } transition-colors`}
                 >
                     Change
                 </button>
@@ -65,11 +64,10 @@ const Settings = () => {
         if (item.setting === 'twoFactorAuth') {
             if (import.meta.env.VITE_SKIP_VALIDATION === 'true') {
                 return (
-                    <div className={`px-4 py-2 rounded-lg ${
-                        theme === 'dark' 
-                            ? 'bg-purple-600/20 text-purple-300' 
+                    <div className={`px-4 py-2 rounded-lg ${theme === 'dark'
+                            ? 'bg-purple-600/20 text-purple-300'
                             : 'bg-blue-100 text-blue-700'
-                    } flex items-center gap-2`}>
+                        } flex items-center gap-2`}>
                         <FiShield className="w-4 h-4" />
                         <span className="text-sm">Secured</span>
                     </div>
@@ -79,11 +77,10 @@ const Settings = () => {
                 <div className="relative">
                     <button
                         onClick={handleSetup}
-                        className={`px-4 py-2 rounded-lg ${
-                            theme === 'dark' 
-                                ? 'bg-purple-600 hover:bg-purple-700 text-white' 
+                        className={`px-4 py-2 rounded-lg ${theme === 'dark'
+                                ? 'bg-purple-600 hover:bg-purple-700 text-white'
                                 : 'bg-blue-100 hover:bg-blue-200 text-blue-700'
-                        } transition-colors`}
+                            } transition-colors`}
                     >
                         Setup
                     </button>
@@ -93,14 +90,13 @@ const Settings = () => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 10 }}
-                                className={`absolute right-0 mt-2 p-2 rounded-lg text-sm whitespace-nowrap ${
-                                    theme === 'dark' 
-                                        ? 'bg-red-900/80 text-red-200' 
+                                className={`absolute right-0 mt-2 p-2 rounded-lg text-sm whitespace-nowrap ${theme === 'dark'
+                                        ? 'bg-red-900/80 text-red-200'
                                         : 'bg-red-100 text-red-600'
-                                } flex items-center gap-2`}
+                                    } flex items-center gap-2`}
                             >
                                 <FiAlertCircle className="w-4 h-4" />
-                                Complete the process first
+                                This feature is not available at the moment .
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -116,19 +112,16 @@ const Settings = () => {
                     onChange={() => handleToggle(item.setting)}
                     className="sr-only peer"
                 />
-                <div className={`w-11 h-6 ${
-                    theme === 'dark' 
-                        ? 'bg-purple-900/20' 
+                <div className={`w-11 h-6 ${theme === 'dark'
+                        ? 'bg-purple-900/20'
                         : 'bg-blue-200'
-                } peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:${
-                    theme === 'dark'
+                    } peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:${theme === 'dark'
                         ? 'bg-purple-400 after:border-purple-400'
                         : 'bg-blue-300 after:border-blue-300'
-                } after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:${
-                    theme === 'dark'
+                    } after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:${theme === 'dark'
                         ? 'bg-purple-600'
                         : 'bg-blue-600'
-                }`}></div>
+                    }`}></div>
             </label>
         );
     };

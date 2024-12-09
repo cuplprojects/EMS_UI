@@ -150,8 +150,8 @@ const AllEmployee = () => {
       },
       cell: ({ row }) => (
         <span className={`px-3 py-1 rounded-full text-sm ${row.original.isActive
-            ? 'bg-green-100 text-green-800'
-            : 'bg-red-100 text-red-800'
+          ? 'bg-green-100 text-green-800'
+          : 'bg-red-100 text-red-800'
           }`}>
           {row.original.isActive ? 'Active' : 'Inactive'}
         </span>
@@ -168,16 +168,20 @@ const AllEmployee = () => {
       enableSorting: false,
       cell: ({ row }) => (
         <div className="flex justify-end gap-3">
-          
+
+          {/*Edit Emp */}
           <button
             onClick={() => navigate(`/masters/employee/update/${row.original.empID}`)}
             className={`${theme === 'dark' ? 'text-purple-400 hover:text-purple-300' : 'text-blue-400 hover:text-blue-300'} transition-colors`}
           >
             <FiEdit2 className="w-5 h-5" />
           </button>
-          <button className="text-red-400 hover:text-red-300 transition-colors">
+          {/* Delete Emp */}
+          <button
+            className="text-red-400 hover:text-red-300 transition-colors">
             <FiTrash2 className="w-5 h-5" />
           </button>
+          {/* View Emp */}
           <button
             onClick={() => handleViewDetails(row.original)}
             className={`${theme === 'dark' ? 'text-purple-400 hover:text-purple-300' : 'text-blue-400 hover:text-blue-300'} transition-colors`}
@@ -239,8 +243,8 @@ const AllEmployee = () => {
             }
           }}
           className={`px-3 py-1.5 rounded-lg border ${theme === 'dark'
-              ? 'bg-purple-900/20 border-purple-500/20 text-purple-100'
-              : 'bg-white border-gray-200 text-gray-900'
+            ? 'bg-purple-900/20 border-purple-500/20 text-purple-100'
+            : 'bg-white border-gray-200 text-gray-900'
             }`}
           style={{
             colorScheme: theme === 'dark' ? 'dark' : 'light'
@@ -407,8 +411,8 @@ const AllEmployee = () => {
                 value={globalFilter ?? ''}
                 onChange={e => setGlobalFilter(e.target.value)}
                 className={`w-full pl-10 pr-10 py-2 rounded-lg border ${theme === 'dark'
-                    ? 'bg-purple-900/20 border-purple-500/20 text-purple-100 placeholder-purple-400'
-                    : 'bg-white border-gray-200 text-gray-900 placeholder-gray-400'
+                  ? 'bg-purple-900/20 border-purple-500/20 text-purple-100 placeholder-purple-400'
+                  : 'bg-white border-gray-200 text-gray-900 placeholder-gray-400'
                   }`}
               />
               {globalFilter && (
@@ -423,6 +427,7 @@ const AllEmployee = () => {
             </div>
           </div>
           <div className="flex gap-2">
+            {/* Filter Button */}
             <button
               onClick={() => setShowFilters(!showFilters)}
               className={`px-4 py-2 rounded-lg flex items-center gap-2 ${secondaryButtonClass}`}
@@ -430,6 +435,7 @@ const AllEmployee = () => {
               <FiFilter className="w-5 h-5" />
               <span className="hidden sm:inline">Filters</span>
             </button>
+            {/* Export Button */}
             <button
               onClick={handleExportToExcel}
               className={`px-4 py-2 rounded-lg flex items-center gap-2 ${secondaryButtonClass}`}
@@ -437,7 +443,10 @@ const AllEmployee = () => {
               <FiDownload className="w-5 h-5" />
               <span className="hidden sm:inline">Export</span>
             </button>
-            <button className={`px-4 py-2 rounded-lg flex items-center gap-2 ${secondaryButtonClass}`}>
+            {/* Import Button */}
+            <button
+              onClick={() => navigate(`/masters/employee/import`)}
+              className={`px-4 py-2 rounded-lg flex items-center gap-2 ${secondaryButtonClass}`}>
               <FiUpload className="w-5 h-5" />
               <span className="hidden sm:inline">Import</span>
             </button>
@@ -558,8 +567,8 @@ const AllEmployee = () => {
                 table.setPageSize(Number(e.target.value));
               }}
               className={`px-3 py-1 rounded border ${theme === 'dark'
-                  ? 'bg-purple-900/20 border-purple-500/20 text-purple-100'
-                  : 'bg-white border-gray-200 text-gray-900'
+                ? 'bg-purple-900/20 border-purple-500/20 text-purple-100'
+                : 'bg-white border-gray-200 text-gray-900'
                 }`}
             >
               {[10, 20, 30, 40, 50].map(pageSize => (
@@ -615,8 +624,8 @@ const AllEmployee = () => {
                   table.setPageIndex(page);
                 }}
                 className={`w-16 px-2 py-1 rounded border ${theme === 'dark'
-                    ? 'bg-purple-900/20 border-purple-500/20 text-purple-100'
-                    : 'bg-white border-gray-200 text-gray-900'
+                  ? 'bg-purple-900/20 border-purple-500/20 text-purple-100'
+                  : 'bg-white border-gray-200 text-gray-900'
                   }`}
               />
             </span>
