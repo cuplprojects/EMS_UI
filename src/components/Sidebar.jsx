@@ -13,8 +13,9 @@ import {
   FiBriefcase,
   FiDollarSign,
   FiCreditCard,
-  FiFileText
+  FiFileText,
 } from "react-icons/fi";
+import { BsHandIndexThumb } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 import { useThemeStore } from '../store/themeStore';
 import { useState } from 'react';
@@ -42,6 +43,7 @@ const Sidebar = ({ onClose, isMobile, isCollapsed, onCollapse }) => {
     },
     { path: "/payrolls", icon: <FiFileText className="w-6 h-6" />, label: "Payrolls" },
     { path: "/loans-and-advances", icon: <FiCreditCard className="w-6 h-6" />, label: "Loans & Advances" },
+    { path: "/attendance", icon: <BsHandIndexThumb className="w-6 h-6" />, label: "Attendance" },
   ];
 
   const toggleExpand = (path) => {
