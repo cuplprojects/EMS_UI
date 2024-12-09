@@ -15,6 +15,8 @@ import Location from './pages/Masters/Location/Location';
 import Designation from './pages/Masters/Designation/Designation';
 import Banks from './pages/Masters/Banks/Banks';
 import UpdateEmployee from './pages/Masters/Employee/UpdateEmployee';
+import ImportEmployee from './pages/Masters/Employee/ImportEmployee';
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
@@ -45,6 +47,7 @@ function App() {
           <Route path="masters/employee" element={<Navigate to="/masters/employee/view" replace />} />
           <Route path="masters/employee/view" element={<AllEmployee />} />
           <Route path="masters/employee/add" element={<AddEmployee />} />
+          <Route path="masters/employee/import" element={<ImportEmployee />} />
           <Route path="masters/roles" element={<Roles />} />
           <Route path="masters/departments" element={<Department />} />
           <Route path="masters/locations" element={<Location />} />

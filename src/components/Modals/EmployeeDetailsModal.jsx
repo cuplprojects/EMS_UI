@@ -18,28 +18,24 @@ const EmployeeDetailsModal = ({ employee, onClose }) => {
           initial={{ scale: 0.95 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0.95 }}
-          className={`w-full max-w-4xl mx-auto my-4 rounded-xl ${
-            theme === 'dark' 
-              ? 'bg-black/90 border border-purple-500/20' 
-              : 'bg-white'
-          } overflow-hidden shadow-xl relative`}
+          className={`w-full max-w-4xl mx-auto my-4 rounded-xl ${theme === 'dark'
+            ? 'bg-black/90 border border-purple-500/20'
+            : 'bg-white'
+            } overflow-hidden shadow-xl relative`}
         >
           {/* Header */}
-          <div className={`relative p-6 border-b ${
-            theme === 'dark' ? 'border-gray-700' : 'border-gray-200'
-          }`}>
-            <h2 className={`text-xl font-semibold ${
-              theme === 'dark' ? 'text-purple-100' : 'text-blue-900'
+          <div className={`relative p-6 border-b ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'
             }`}>
+            <h2 className={`text-xl font-semibold ${theme === 'dark' ? 'text-purple-100' : 'text-blue-900'
+              }`}>
               Employee Details
             </h2>
             <button
               onClick={onClose}
-              className={`absolute top-6 right-6 ${
-                theme === 'dark' 
-                  ? 'text-purple-400 hover:text-purple-300' 
-                  : 'text-blue-400 hover:text-blue-500'
-              }`}
+              className={`absolute top-6 right-6 ${theme === 'dark'
+                ? 'text-purple-400 hover:text-purple-300'
+                : 'text-blue-400 hover:text-blue-500'
+                }`}
             >
               <FiX className="w-5 h-5" />
             </button>
@@ -48,14 +44,16 @@ const EmployeeDetailsModal = ({ employee, onClose }) => {
           {/* Content */}
           <div className="p-6 space-y-6">
             {/* Profile Picture */}
-            <div className="flex justify-center">
+            <div className="flex justify-center align-middle">
+
               <img
                 src={employee.profilePicture || defaultAvatar}
                 alt={employee.fullName}
-                className={`w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 ${
-                  theme === 'dark' ? 'border-gray-700' : 'border-gray-200'
-                }`}
+                className={`w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 ${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'
+                  }`}
               />
+
+
             </div>
 
             {/* Basic Information */}
@@ -72,7 +70,7 @@ const EmployeeDetailsModal = ({ employee, onClose }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <InfoItem label="Email" value={employee.email} />
               <InfoItem label="Primary Mobile" value={employee.mobile1} />
-              <InfoItem label="Secondary Mobile" value={employee.mobile2} />
+              <InfoItem label="Secondary Mobile" value={employee.mobile2 ? employee.mobile2 : 'Not Provided'} />
             </div>
 
             {/* Permanent Address */}
@@ -80,8 +78,8 @@ const EmployeeDetailsModal = ({ employee, onClose }) => {
               <h3 className={`font-medium ${theme === 'dark' ? 'text-purple-300' : 'text-blue-600'}`}>
                 Permanent Address
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <InfoItem label="Address" value={employee.pAddress} className="col-span-full" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <InfoItem label="Address" value={employee.pAddress} className="" />
                 <InfoItem label="Pin Code" value={employee.pPinCode} />
                 <InfoItem label="District" value={employee.pDistrict} />
               </div>
@@ -92,8 +90,8 @@ const EmployeeDetailsModal = ({ employee, onClose }) => {
               <h3 className={`font-medium ${theme === 'dark' ? 'text-purple-300' : 'text-blue-600'}`}>
                 Current Address
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <InfoItem label="Address" value={employee.cAddress} className="col-span-full" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <InfoItem label="Address" value={employee.cAddress} className="" />
                 <InfoItem label="Pin Code" value={employee.cPinCode} />
                 <InfoItem label="District" value={employee.cDistrict} />
               </div>
@@ -105,13 +103,13 @@ const EmployeeDetailsModal = ({ employee, onClose }) => {
               <InfoItem label="Role" value={employee.roleName} />
               <InfoItem label="Designation" value={employee.designationName} />
               <InfoItem label="Working Location" value={employee.locationName} />
-              <InfoItem 
-                label="Date of Birth" 
-                value={employee.dob ? new Date(employee.dob).toLocaleDateString() : ''} 
+              <InfoItem
+                label="Date of Birth"
+                value={employee.dob ? new Date(employee.dob).toLocaleDateString() : ''}
               />
-              <InfoItem 
-                label="Date of Joining" 
-                value={employee.doj ? new Date(employee.doj).toLocaleDateString() : ''} 
+              <InfoItem
+                label="Date of Joining"
+                value={employee.doj ? new Date(employee.doj).toLocaleDateString() : ''}
               />
             </div>
 
@@ -120,7 +118,10 @@ const EmployeeDetailsModal = ({ employee, onClose }) => {
               <InfoItem label="Aadhaar Number" value={employee.aadhaarNumber} />
               <InfoItem label="PAN Number" value={employee.panNumber} />
               <InfoItem label="Gender" value={employee.gender} />
-              <InfoItem label="Status" value={employee.isActive ? 'Active' : 'Inactive'} />
+            </div>
+            {/* Status */}
+            <div className={`flex justify-center ${employee.isActive ? 'bg-green-200' : 'bg-red-200 text-white-400'} p-2 rounded`}>
+              <InfoItem value={employee.isActive ? 'Active' : 'Inactive'} className={` ${employee.isActive ? '' : ' text-white-400'}`}/>
             </div>
           </div>
         </motion.div>
@@ -131,17 +132,15 @@ const EmployeeDetailsModal = ({ employee, onClose }) => {
 
 const InfoItem = ({ label, value, className = '' }) => {
   const theme = useThemeStore((state) => state.theme);
-  
+
   return (
     <div className={className}>
-      <label className={`text-sm ${
-        theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
-      }`}>
+      <label className={`text-sm ${theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
+        }`}>
         {label}
       </label>
-      <p className={`mt-1 ${
-        theme === 'dark' ? 'text-purple-100' : 'text-blue-900'
-      }`}>
+      <p className={`mt-1 ${theme === 'dark' ? 'text-purple-100' : 'text-blue-900'
+        }`}>
         {value || '-'}
       </p>
     </div>
