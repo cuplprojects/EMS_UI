@@ -21,7 +21,7 @@ import LoansAndAdvances from './pages/LoansAndAdvances/LoansAndAdvances';
 import Attendance from './pages/Attendance/Attendance';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <Router>
